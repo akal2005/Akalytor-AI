@@ -102,7 +102,7 @@ export const Login: React.FC = () => {
                 <input
                   type="password"
                   required
-                  placeholder="e.g. 63798"
+                  placeholder="e.g. 90807"
                   className="mono-input w-full pl-9 text-sm"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -131,7 +131,7 @@ export const Login: React.FC = () => {
           {/* Quick Info Box */}
           <div className="mt-8 pt-6 border-t border-[#1e1e22] text-center select-none">
             <span className="text-[9px] text-zinc-600 font-mono">
-              CREDENTIALS: Manikandan // 63798
+              CREDENTIALS: Akalya // 90807
             </span>
           </div>
         </div>

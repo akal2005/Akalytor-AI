@@ -34,8 +34,8 @@ def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(securit
 
 @router.post("/login")
 def login(req: LoginRequest, db: Session = Depends(get_db)):
-    admin_user = os.environ.get("ADMIN_USERNAME", "Manikandan")
-    admin_pass = os.environ.get("ADMIN_PASSWORD", "63798")
+    admin_user = os.environ.get("ADMIN_USERNAME", "Akalya")
+    admin_pass = os.environ.get("ADMIN_PASSWORD", "90807")
 
     if req.username != admin_user or req.password != admin_pass:
         raise HTTPException(status_code=401, detail="Invalid username or password.")
@@ -44,7 +44,7 @@ def login(req: LoginRequest, db: Session = Depends(get_db)):
     user = db.query(models.User).filter(models.User.name == admin_user).first()
     if not user:
         user = models.User(
-            email=os.environ.get("ADMIN_EMAIL", "money.boxx007@gmail.com"), 
+            email=os.environ.get("ADMIN_EMAIL", "akalya2005@gmail.com"), 
             name=admin_user,
             xp=0,
             level=1
