@@ -6,6 +6,7 @@ import {
   Brain, 
   DollarSign, 
   FileText, 
+  Bell,
   LogOut
 } from 'lucide-react';
 import { removeToken } from '../lib/api';
@@ -30,6 +31,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ username, level, xp }) => {
     { name: 'Dashboard', icon: LayoutDashboard, path: '/' },
     { name: 'Tasks', icon: CheckSquare, path: '/tasks' },
     { name: 'MONI AI', icon: Brain, path: '/ai' },
+    { name: 'Reminders', icon: Bell, path: '/reminders' },
     { name: 'Expenses', icon: DollarSign, path: '/expenses' },
     { name: 'Notes', icon: FileText, path: '/notes' },
   ];

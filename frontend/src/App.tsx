@@ -6,6 +6,7 @@ import { Tasks } from './pages/Tasks';
 import { AI } from './pages/AI';
 import { Expenses } from './pages/Expenses';
 import { Notes } from './pages/Notes';
+import { Reminders } from './pages/Reminders';
 import { Login } from './pages/Login';
 import { getToken, apiFetch } from './lib/api';
 import { Terminal, ShieldCheck } from 'lucide-react';
@@ -122,6 +123,15 @@ const AppContent: React.FC = () => {
             path="/notes" 
             element={
               <Notes 
+                triggerNotification={triggerNotification} 
+                onActionExecuted={handleActionExecuted} 
+              />
+            } 
+          />
+          <Route 
+            path="/reminders" 
+            element={
+              <Reminders 
                 triggerNotification={triggerNotification} 
                 onActionExecuted={handleActionExecuted} 
               />

@@ -21,3 +21,12 @@ def create_reminder(reminder: schemas.ReminderCreate, db: Session = Depends(get_
 @router.get("/", response_model=List[schemas.ReminderResponse])
 def get_reminders(db: Session = Depends(get_db), user: models.User = Depends(get_current_user)):
     return db.query(models.Reminder).filter(models.Reminder.user_id == user.id).all()
+
+@router.delete("/{reminder_id}")
+def delete_reminder(reminder_id: UUID, db: Session = Depends(get_db), user: models.User = Depends(get_current_user)):
+    reminder = db.query(models.Reminder).filter(models.Reminder.id == reminder_id, models.Reminder.user_id == user.id).first()
+    if not reminder:
+        raise HTTPException(status_code=404, detail="Reminder not found")
+    db.delete(reminder)
+    db.commit()
+    return {"status": "success"}
