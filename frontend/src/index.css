@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-dark: #08080a;
+    --bg-panel: #111113;
+    --border-color: #1e1e22;
+    --border-color-hover: #33333a;
+    --text-primary: #ffffff;
+    --text-secondary: #8a8a93;
+    --font-heading: 'Space Grotesk', system-ui, sans-serif;
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-mono: 'Fira Code', ui-monospace, monospace;
+  }
+  
+  body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+  }
+}
+
+/* Custom Scrollbar for Monochrome Theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: #252528;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3f;
+}
+
+/* Custom classes for Monochrome UI */
+.mono-panel {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mono-panel:hover {
+  border-color: var(--border-color-hover);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.mono-border {
+  border: 1px solid var(--border-color);
+}
+
+.mono-input {
+  background-color: #0c0c0e;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  border-radius: 4px;
+  padding: 8px 12px;
+  outline: none;
+  font-family: var(--font-sans);
+  transition: all 0.2s ease;
+}
+
+.mono-input:focus {
+  border-color: #ffffff;
+  box-shadow: 0 0 0 1px #ffffff;
+}
+
+.mono-btn {
+  background-color: #ffffff;
+  color: #000000;
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 8px 16px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.mono-btn:hover {
+  background-color: #e5e5e5;
+  transform: translateY(-1px);
+}
+
+.mono-btn:active {
+  transform: translateY(0);
+}
+
+.mono-btn-secondary {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 8px 16px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.mono-btn-secondary:hover {
+  background-color: #1a1a1f;
+  border-color: var(--border-color-hover);
+}
+
+/* LED Indicator States */
+@keyframes status-pulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+  }
+  50% {
+    opacity: 0.4;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
+  }
+}
+
+.led-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: inline-block;
+  animation: status-pulse 2s infinite;
+}
+
+.led-indicator.online {
+  background-color: #ffffff;
+  box-shadow: 0 0 6px #ffffff;
+}
+
+.led-indicator.offline {
+  background-color: #ff453a;
+  animation: none;
+  box-shadow: 0 0 6px #ff453a;
+}
+
+.led-indicator.xp {
+  background-color: #32d74b;
+  animation: status-pulse 1.5s infinite;
+  box-shadow: 0 0 6px #32d74b;
+}
+
+.led-indicator.pending {
+  background-color: #ff9f0a;
+  animation: none;
+  box-shadow: 0 0 6px #ff9f0a;
+}
+
+/* Scanline effect for terminal-styled components */
+.scanlines {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanlines::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}

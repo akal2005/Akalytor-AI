@@ -1,0 +1,31 @@
+# Python / Backend
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+ENV/
+env/
+.env
+*.db
+backend/sqlite.db
+backend/.env
+
+# Node / Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+frontend/.env.local
+frontend/node_modules/
+frontend/dist/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
