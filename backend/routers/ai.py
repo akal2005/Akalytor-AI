@@ -2,6 +2,9 @@ from fastapi import APIRouter, HTTPException, Depends, WebSocket, WebSocketDisco
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
 import os
+from dotenv import load_dotenv
+load_dotenv()
+
 import jwt
 import google.generativeai as genai
 from database import get_db
