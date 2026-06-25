@@ -48,7 +48,7 @@ def test_db():
 def test_user_token(client, test_db):
     response = client.post(
         "/api/v1/auth/login",
-        json={"username": "Manikandan", "password": "63798"}
+        json={"username": "Akalya", "password": "90807"}
     )
     return response.json()["access_token"]
 

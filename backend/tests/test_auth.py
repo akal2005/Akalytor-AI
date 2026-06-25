@@ -3,7 +3,7 @@ from fastapi.testclient import TestClient
 def test_login_success(client: TestClient, test_db):
     response = client.post(
         "/api/v1/auth/login",
-        json={"username": "Manikandan", "password": "63798"}
+        json={"username": "Akalya", "password": "90807"}
     )
     assert response.status_code == 200
     data = response.json()
@@ -13,7 +13,7 @@ def test_login_success(client: TestClient, test_db):
 def test_login_invalid_password(client: TestClient):
     response = client.post(
         "/api/v1/auth/login",
-        json={"username": "Manikandan", "password": "wrongpassword"}
+        json={"username": "Akalya", "password": "wrongpassword"}
     )
     assert response.status_code == 401
     assert response.json()["detail"] == "Invalid username or password."
